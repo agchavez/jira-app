@@ -18,7 +18,7 @@ export const Layout: FC<Props> = ({ title = 'JiraApp', children }) => {
                 <Navbar />
                 <Sidebar />
 
-                <Box sx={{ minHeight: '100vh' }}>
+                <Box sx={{ minHeight: '90vh', padding: 2, width: '90vw', margin: '0 auto' }}>
                     { children }
 
                 </Box>
