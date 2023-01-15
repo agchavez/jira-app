@@ -13,7 +13,8 @@ export const EntryList: FC<EntryListProps> = ({ entries }) => {
         <Paper sx={{
         height: 'calc(100vh - 250px)',
         overflow: 'auto',
-        background: 'transparent'
+        background: 'transparent',
+        padding: 1,
         }}>
             <List sx={{ opacity: 1 , }}>
                 {

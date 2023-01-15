@@ -7,11 +7,11 @@ import { EntryList } from '../components/ui/EntryList';
 import { useContext } from 'react';
 import { EntriesContext } from '../context/entries/EntriesContext';
 import { EntryStatus } from '../interfaces/entry';
+import { NewEntry } from '../components/ui';
 
 const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   const { entries } = useContext( EntriesContext );
-  console.log(entries)
   return (
     <>
       <UIProvider>
@@ -21,6 +21,7 @@ export default function Home() {
               <Card sx={{ p: 2, m: 2, height: 'calc(100vh - 120px)' }}>
                 <CardHeader title="Pendientes" />
                 <CardContent>
+                  <NewEntry />
                   <EntryList entries={entries.filter( entry => entry.status === 'PENDING' )} />
                 </CardContent>
               </Card>
