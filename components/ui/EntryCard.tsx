@@ -1,20 +1,35 @@
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react'
 
 import { formatDistance, subDays, format } from 'date-fns'
 import { Avatar, Card, CardActionArea, CardActions, CardContent, Divider, Typography } from '@mui/material'
 
 import { Entry } from '../../interfaces'
+import { UIContext } from '../../context/ui';
 
 interface EntryCardProps {
     entry: Entry;
 
 }
 export const EntryCard: FC<EntryCardProps> = ({ entry }) => {
+
+    const { setIsDragging } = useContext(UIContext);
+    const onDragStart = (e: React.DragEvent<HTMLDivElement>) => {
+        setIsDragging(true);
+        e.dataTransfer.setData('text/plain', entry._id);
+    }
+    
+    const onDradEnd = (e: React.DragEvent<HTMLDivElement>) => {
+        setIsDragging(false);
+    }
+    
   return (
     <>
         <Card sx ={{
             marginBottom: 1,
         }}
+            draggable
+            onDragStart={onDragStart}
+            onDragEnd={onDradEnd}    
         >
             <CardActionArea>
 

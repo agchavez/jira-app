@@ -1,6 +1,6 @@
 import { FC, useReducer } from 'react'
 import { EntriesContext, entriesReducer } from './'
-import { Entry } from '../../interfaces/entry';
+import { Entry, EntryStatus } from '../../interfaces/entry';
 import { v4 as uuidv4 } from 'uuid';
 export interface EntriesState {
     entries: Entry[];
@@ -35,12 +35,23 @@ export const EntriesProvider: FC<Props> = ({ children }) => {
         })
     }
 
+    const draginEntry = (entryId: string, status: EntryStatus) => {
+        dispatch({
+            type: '[Entries] - DRAGIN',
+            payload: {
+                entryId,
+                status
+            }
+        })
+    }
+
     
     
     return (
         <EntriesContext.Provider value={{
             ...state,
             addEntry,
+            draginEntry
             
         }}>
             {children}
