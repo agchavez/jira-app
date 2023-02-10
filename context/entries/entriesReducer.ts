@@ -4,6 +4,7 @@ import { EntriesState } from './';
 
 type EntriesActionType =
    | { type: '[Entries] - ADDNEW', payload: Entry }
+   
 
 
 export const entriesReducer = (state: EntriesState, action: EntriesActionType): EntriesState => {
@@ -14,6 +15,7 @@ export const entriesReducer = (state: EntriesState, action: EntriesActionType): 
             ...state,
             entries: [...state.entries, action.payload]
          }
+     
 
       default:
          return state;

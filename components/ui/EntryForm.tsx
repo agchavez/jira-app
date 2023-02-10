@@ -5,7 +5,7 @@ import AddToPhotosOutlinedIcon from '@mui/icons-material/AddToPhotosOutlined';
 import { useEntryContext } from '../../hooks/useEntryContext';
 
 interface EntryFormProps {
-    setisAdding: React.Dispatch<React.SetStateAction<boolean>>
+    setisAdding: (isAdding: boolean) => void;
 }
 
 export const EntryForm: FC<EntryFormProps> = ({ setisAdding }) => {

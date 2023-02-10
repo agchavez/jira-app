@@ -4,6 +4,7 @@ import { Entry } from '../../interfaces/entry';
 import { v4 as uuidv4 } from 'uuid';
 export interface EntriesState {
     entries: Entry[];
+    
 }
 
 interface Props {
@@ -14,6 +15,7 @@ interface Props {
 const NAME_INITIAL_STATE: EntriesState = {
     entries: [
     ],
+    
 }
 
 export const EntriesProvider: FC<Props> = ({ children }) => {
@@ -32,11 +34,14 @@ export const EntriesProvider: FC<Props> = ({ children }) => {
             payload: newEntry
         })
     }
+
+    
     
     return (
         <EntriesContext.Provider value={{
             ...state,
-            addEntry
+            addEntry,
+            
         }}>
             {children}
         </EntriesContext.Provider>

@@ -3,6 +3,7 @@ import { UIContext, uiReducer } from './'
 
 export interface UIState {
     sidebarOpen: boolean,
+    isAdding: boolean;
 }
 
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
 
 const UI_INITIAL_STATE: UIState = {
     sidebarOpen: false,
+    isAdding: false
 }
 
 export const UIProvider: FC<Props> = ({ children }) => {
@@ -19,15 +21,23 @@ export const UIProvider: FC<Props> = ({ children }) => {
 
     const openSidebar = () => {
         dispatch({
-            type: '[ACTION] OPEN-SIDEBAR',
+            type: '[UI] OPEN-SIDEBAR',
         })
     }
 
     const closeSidebar = () => {
         dispatch({
-            type: '[ACTION] CLOSE-SIDEBAR',
+            type: '[UI] CLOSE-SIDEBAR',
         })
     }
+
+    const setIsAddinEntry = (isAdding: boolean) => {
+        dispatch({
+            type: '[UI] - SETISADDING',
+            payload: isAdding
+        })
+    }
+    
     return (
         <UIContext.Provider value={{
             ...state,
@@ -35,6 +45,7 @@ export const UIProvider: FC<Props> = ({ children }) => {
             // ACTIONS
             openSidebar,
             closeSidebar,
+            setIsAddinEntry
         }}>
             {children}
         </UIContext.Provider>
