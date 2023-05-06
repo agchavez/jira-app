@@ -28,5 +28,5 @@ jobs:
     - run: yarn build
     - name: Copy files to /var/www/html/masterdata
       run: sudo cp -R .next/* /var/www/html/jiraApp
-    - name: Restart nginx
+    - name: Restart nginx test
       run: sudo service nginx restart
