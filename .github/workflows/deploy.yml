@@ -27,3 +27,7 @@ jobs:
     - run: npm install -g yarn
     - run: yarn install
     - run: yarn build
+    - name: Copy files to /var/www/html/masterdata
+      run: sudo cp -R build/* /var/www/html/jiraApp
+    - name: Restart nginx
+      run: sudo service nginx restart
