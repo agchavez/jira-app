@@ -20,7 +20,7 @@ export const Navbar: FC<Props> = () => {
         <AppBar position="static" elevation={0}>
             <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        JiraApp
+                        JiraApp Gabriel Chavez
                     </Typography>
             </Toolbar>
         </AppBar>
