@@ -1,0 +1,33 @@
+name: deploy-server
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    # Ejecutar en el servidor remoto
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }} with Yarn
+      uses: actions/setup-node@v2.4.2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+    - name: Convert package-lock.json to yarn.lock
+      run: yarn import
+    - run: yarn install
+    - run: yarn build
+    - name: Reload pm2
+      run: pm2 reload 0
+    - name: Restart nginx test
+      run: sudo service nginx restart
+
