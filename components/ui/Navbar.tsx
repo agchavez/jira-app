@@ -19,9 +19,6 @@ export const Navbar: FC<Props> = () => {
     <>
         <AppBar position="static" elevation={0}>
             <Toolbar>
-                <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }} size="large" onClick={ openSidebar }>
-                    <MenuOutlinedIcon />
-                </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         JiraApp
                     </Typography>
