@@ -15,20 +15,6 @@ export const Sidebar = () => {
 
   return (
     <>
-        <Drawer
-            anchor="left"
-            open={ sidebarOpen }
-            onClose={ closeSidebar }
-        >
-            <Box>
-                <Typography variant="h4">Sidebar</Typography>
-            </Box>
-            <List>
-
-
-            </List>
-
-        </Drawer>
     </>
   )
 }
