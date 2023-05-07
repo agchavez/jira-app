@@ -18,29 +18,29 @@ export default function Home() {
         <Layout>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>
-              <Card sx={{ p: 2, m: 2, height: 'calc(100vh - 120px)' }}>
+              <Card sx={{ p: 0, m: 2, height: 'calc(100vh - 120px)' }}>
                 <CardHeader title="Pendientes" />
                 <CardContent>
                   <NewEntry />
-                  <EntryList entries={entries.filter( entry => entry.status === 'PENDING' )} />
+                  <EntryList entries={entries.filter( entry => entry.status === 'PENDING' )} status={'PENDING'} />
                 </CardContent>
               </Card>
               
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Card sx={{ p: 2, m: 2, height: 'calc(100vh - 120px)' }}>
+              <Card sx={{ p: 0, m: 2, height: 'calc(100vh - 120px)' }}>
                 <CardHeader title="En progreso" />
                 <CardContent>
-                  <EntryList entries={entries.filter( entry => entry.status === 'IN_PROGRESS' )} />
+                  <EntryList entries={entries.filter( entry => entry.status === 'IN_PROGRESS' )} status={'IN_PROGRESS'} />
                 </CardContent>
               </Card>
               
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Card sx={{ p: 2, m: 2, height: 'calc(100vh - 120px)' }}>
+              <Card sx={{ p: 0, m: 2, height: 'calc(100vh - 120px)' }}>
                 <CardHeader title="Finalizadas" />
                 <CardContent>
-                  <EntryList entries={entries.filter( entry => entry.status === 'DONE' )} />
+                  <EntryList entries={entries.filter( entry => entry.status === 'DONE' )} status={'DONE'} />
                 </CardContent>
               </Card>
             </Grid>

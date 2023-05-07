@@ -1,9 +1,10 @@
 import { FC, useReducer } from 'react'
 import { EntriesContext, entriesReducer } from './'
-import { Entry } from '../../interfaces/entry';
+import { Entry, EntryStatus } from '../../interfaces/entry';
 import { v4 as uuidv4 } from 'uuid';
 export interface EntriesState {
     entries: Entry[];
+    
 }
 
 interface Props {
@@ -14,6 +15,7 @@ interface Props {
 const NAME_INITIAL_STATE: EntriesState = {
     entries: [
     ],
+    
 }
 
 export const EntriesProvider: FC<Props> = ({ children }) => {
@@ -32,11 +34,25 @@ export const EntriesProvider: FC<Props> = ({ children }) => {
             payload: newEntry
         })
     }
+
+    const draginEntry = (entryId: string, status: EntryStatus) => {
+        dispatch({
+            type: '[Entries] - DRAGIN',
+            payload: {
+                entryId,
+                status
+            }
+        })
+    }
+
+    
     
     return (
         <EntriesContext.Provider value={{
             ...state,
-            addEntry
+            addEntry,
+            draginEntry
+            
         }}>
             {children}
         </EntriesContext.Provider>
