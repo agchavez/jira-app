@@ -17,16 +17,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }} with Yarn :tada:
+    - name: Use Node.js ${{ matrix.node-version }} with Yarn 🎉
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
     
-    - name: install dependencies :arrow_down:
+    - name: install dependencies ⬇️
       run: yarn install
-    - name: build product :package:
+    - name: build product 📦
       run: yarn build
-    - name: Reload pm2 :rocket:
+    - name: Reload pm2 🚀
       run: /root/.nvm/versions/node/v20.1.0/bin/pm2 reload 0
 
