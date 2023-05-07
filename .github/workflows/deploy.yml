@@ -25,7 +25,7 @@ jobs:
     - run: yarn install
     - run: yarn build
     - name: Reload pm2
-      run: pm2 reload 0
+      run: /root/.nvm/versions/node/v20.1.0/bin/pm2 reload 0
     - name: Restart nginx
       run: sudo service nginx restart
 
